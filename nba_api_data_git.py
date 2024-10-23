@@ -67,7 +67,7 @@ for team in all_teams_list:
 for rank, team_id, team_name, assist in zip(ranks, team_ids, team_names, assist_totals):
     hover_texts.append(
         f"Rank {rank}: {team_name} (Assist Totals: {format(assist, ',')})"
-        "<extra></extra>"
+        "<extra></extra>" 
     )
     # href format: <a href='{url}'>{team_name}</a>
     team_ast_video_links.append(

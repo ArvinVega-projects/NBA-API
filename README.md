@@ -15,7 +15,7 @@ $ python -m pip install plotly
 ```
 
 # Notes:
-Data prior to the 1995-96 season cannot be retrieved as the NBA website does not provide this data.
+Data prior to the 1996-97 season cannot be retrieved as the NBA website does not provide this data.
 Video data prior to 2015-16 season cannot be retrieved due to the same issue.
 
 # Instructions:
