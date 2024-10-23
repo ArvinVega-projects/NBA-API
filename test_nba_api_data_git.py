@@ -9,11 +9,6 @@ def get_status_code(url, headers):
     r = requests.get(url, headers=headers)
     return r.status_code
 
-# def get_assist_totals():
-#     """Retrieve number of assists for each team."""
-#     assist_totals = nba.assist_totals
-#     return assist_totals
-
 def get_len_axes(axis):
     """Retrieve number of elements for each axis."""
     count = len(axis)
@@ -29,10 +24,10 @@ def test_status_code():
     status_code = get_status_code(nba.url, headers=nba.STATS_HEADERS)
     assert status_code == 200
 
-def test_assist_null():
+def test_assist_values():
     """Will each element in assist_totals contain values (>=0)?"""
-    assist_null = nba.assist_totals
-    assert [assist >= 0 for assist in assist_null]
+    assist_values = [assist >= 0 for assist in nba.assist_totals]
+    assert assist_values == [assist == True for assist in assist_values]
 
 def test_axes_match_count():
     """
