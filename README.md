@@ -15,8 +15,8 @@ $ python -m pip install plotly
 ```
 
 # Notes:
-Data prior to the 1995-96 cannot be retrieved as the NBA website does not provide this data.
-Video data prior to 2015-16 cannot be retrieved due to the same issue.
+Data prior to the 1995-96 season cannot be retrieved as the NBA website does not provide this data.
+Video data prior to 2015-16 season cannot be retrieved due to the same issue.
 
 # Instructions:
 Copy the code from nba_api_git.py and nba_team_colors.py into a development environment.
