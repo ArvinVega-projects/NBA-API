@@ -1,7 +1,7 @@
 # Python Project: Webscraping NBA Website Data for Bar Graph Presentation
 This project demonstrates webscraping data from the NBA website that will be displayed on a bar graph.
 The data extracted represents the top 5 teams in assist totals for a specified year determined by the user.
-The resulting data will be presented on a bar graph in an internet browser.
+The resulting data will be presented in an internet browser.
 
 # Requirements
 ## Requests:
