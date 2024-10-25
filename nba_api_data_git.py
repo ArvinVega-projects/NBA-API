@@ -31,9 +31,8 @@ else:
     print(f"API Call Failed! Status Code: {r.status_code}.")
     print("Please verify that the year inputted is correct and try again.")
     exit()
-
+    
 assist_dict = r.json()
-
 
 # Assign all keys and values for each team to variables.
 # Note: format ####-## will always result in 200.
@@ -55,15 +54,13 @@ all_teams_list = [top_team_assists, second_team_assists, third_team_assists,
 
 # Extract the rank, team id, team name, and assist totals for the year.
 ranks, team_ids, team_names, assist_totals = [], [], [], []
-# Create hover_text (hovertemplate) and clickable links (x tick label)
 hover_texts, team_ast_video_links = [], []
 for team in all_teams_list:
     ranks.append(team[0])
     team_ids.append(team[1])
     team_names.append(team[3])
     assist_totals.append(team[4])
-
-# format the hover_texts and clickable links for the graph.
+# Format the hover_texts and clickable links for the graph.
 for rank, team_id, team_name, assist in zip(ranks, team_ids, team_names, assist_totals):
     hover_texts.append(
         f"Rank {rank}: {team_name} (Assist Totals: {format(assist, ',')})"
@@ -71,7 +68,7 @@ for rank, team_id, team_name, assist in zip(ranks, team_ids, team_names, assist_
     )
     # href format: <a href='{url}'>{team_name}</a>
     team_ast_video_links.append(
-        f"<a href='https://www.nba.com/stats/events?CFID=&CFPARAMS=&ContextMeasure=AST&GameID=&PlayerID=0&Season={nba_year}&SeasonType=Regular%20Season&TeamID={team_id}&flag=1&sct=plot&section=game'>{team_name}</a>"
+        f"<a href='https://www.nba.com/stats/events?CFID=&CFPARAMS=&ContextMeasure=AST&GameID=&PlayerID=0&Season={nba_year}&SeasonType=Regular%20Season&TeamID={team_id}&flag=1&sct=plot&section=game' style='color:{get_color(team_name)};'>{team_name}</a>"
     )
 
 # Plot data on graph
@@ -89,11 +86,11 @@ fig = px.bar(x=team_ast_video_links, y=assist_totals, title=title,
              # use get_color to get each top 5 teeam's color for graph.
             color_discrete_map={
                 team_name: get_color(team_name) for team_name in team_names
-                }
+                },
 )
 
 # Adjust font size for; title, x, y,
-fig.update_layout(title_font_size=20,
+fig.update_layout(title_font_size=24,
                   title_x=0.5,
                   xaxis_title_font_size=16, 
                   yaxis_title_font_size=16,
@@ -101,7 +98,10 @@ fig.update_layout(title_font_size=20,
                   yaxis_range=[y_min, y_max], # set the y axis range
                   )
 
-# have thousands separator included on y axis.
+# Update x-axis tick font size.
+fig.update_xaxes(tickfont_size=16)
+
+# have thousands separator included on y-axis.
 fig.update_yaxes(separatethousands=True)
 
 # set hover display from custom_data (hover_texts)
