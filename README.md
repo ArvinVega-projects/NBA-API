@@ -20,4 +20,4 @@ Video data prior to 2014-15 season cannot be retrieved due to the same issue.
 
 # Instructions:
 Copy the code from nba_api_git.py and nba_team_colors.py into a development environment.
-Run nba_api_git.py.
+Run nba_api_data_git.py.
