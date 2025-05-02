@@ -2,7 +2,7 @@
 # Note: Since user input is included, ensure to type the following in terminal:
 # python3 -m pytest -s
 import requests
-import nba_api_data as nba
+import nba_api_data_git as nba
 
 def get_status_code(url, headers):
     """Retrieve status code from API URL."""
