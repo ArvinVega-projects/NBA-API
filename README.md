@@ -2,6 +2,8 @@
 This project demonstrates webscraping data from the NBA website that will be displayed on a bar graph.
 The data extracted represents the top 5 teams in assist totals for a specified year determined by the user.
 The resulting data will be presented in an internet browser.
+Clicking on a team name will take you to their video statistics page, showing 
+each assist for the provided season.
 
 # Requirements
 ## Requests:
@@ -17,6 +19,7 @@ $ python -m pip install plotly
 # Notes:
 Data prior to the 1996-97 season cannot be retrieved as the NBA website does not provide this data.
 Video data prior to 2014-15 season cannot be retrieved due to the same issue.
+Video data for the 2024-25 season cannot be retrieved due to NBA website issue.
 
 # Instructions:
 Copy the code from nba_api_git.py and nba_team_colors.py into a development environment.
