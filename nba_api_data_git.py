@@ -2,12 +2,16 @@
 import requests
 
 from nba_team_colors import get_team_color as get_color
+import check_input
 
 import plotly.express as px
 
 # Ask user to provide the year they want data for.
 print("Please provide the desired year for top assist leaders by team.")
 nba_year = input("Format Year Example (2023-24): ")
+
+# Check user input if format is correct.
+check_input.check_user_input(nba_year)
 
 # Assign API call to variable and define headers.
 url = "https://stats.nba.com/stats/"
@@ -24,19 +28,16 @@ STATS_HEADERS = {
 r = requests.get(url, headers=STATS_HEADERS)
 
 # Confirm API call successful
-# This also catches incorrect user input since it will be an invalid URL.
 if r.status_code == 200:
     print(f"Status: {r.status_code} (Success!)")
 else:
     print(f"API Call Failed! Status Code: {r.status_code}.")
-    print("Please verify that the year inputted is correct and try again.")
     exit()
-    
+
 assist_dict = r.json()
 
 # Assign all keys and values for each team to variables.
-# Note: format ####-## will always result in 200.
-# use try-except block if the inputted year format is correct but no data available.
+# Use try-except block if the inputted year format is correct but no data available.
 try:
     top_team_assists = assist_dict['resultSets'][0]['rowSet'][0]
 except IndexError:
